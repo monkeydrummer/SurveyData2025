@@ -85,17 +85,23 @@ Your app will be live at: `https://YOUR-APP-NAME.streamlit.app`
 ## Usage
 
 1. Enter the password to access the dashboard
-2. Use sidebar filters to select departments and tenure groups
-3. Toggle response grouping and "Don't Know" exclusion
-4. Explore visualizations in Overview and Detailed Questions tabs
-5. Use search to find specific questions
-6. Sort heatmaps by different response types
-7. Click "Logout" to exit
+2. **Upload your survey CSV file** using the sidebar file uploader
+3. Use sidebar filters to select departments and tenure groups
+4. Toggle response grouping and "Don't Know" exclusion
+5. Explore visualizations in Overview and Detailed Questions tabs
+6. Use search to find specific questions
+7. Sort heatmaps by different response types
+8. Click "Logout" to exit
+
+**Note:** You'll need to upload the CSV file each time you start a new session.
 
 ## Data File
 
-Place your survey data file in the root directory:
-- `Rocscience Core Values Survey 2.csv`
+**Important:** Survey data is NOT stored in the repository for privacy.
+
+- Users must upload the CSV file through the app interface
+- The file uploader appears in the sidebar after logging in
+- Supported format: Rocscience Core Values Survey CSV
 
 ## Support
 

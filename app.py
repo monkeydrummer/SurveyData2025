@@ -44,14 +44,35 @@ def check_password():
 if not check_password():
     st.stop()  # Do not continue if check_password is not True
 
+# File Upload
+st.sidebar.title("📁 Data Upload")
+uploaded_file = st.sidebar.file_uploader(
+    "Upload Survey CSV",
+    type=['csv'],
+    help="Upload your Rocscience Core Values Survey CSV file"
+)
+
+if uploaded_file is None:
+    st.info("👈 Please upload your survey CSV file using the sidebar to begin.")
+    st.markdown("""
+    ### Instructions:
+    1. Use the file uploader in the sidebar
+    2. Select your survey CSV file
+    3. The dashboard will load automatically
+    
+    **Expected file format:** Rocscience Core Values Survey CSV
+    """)
+    st.stop()
+
 @st.cache_data
-def load_data():
+def load_data(uploaded_file):
     """Load and process the survey data"""
     # Read the CSV file with proper encoding
-    df = pd.read_csv('Rocscience Core Values Survey 2.csv', skiprows=1, encoding='cp1252')
+    df = pd.read_csv(uploaded_file, skiprows=1, encoding='cp1252')
     
-    # Get the actual questions from the first row
-    questions_df = pd.read_csv('Rocscience Core Values Survey 2.csv', nrows=1, encoding='cp1252')
+    # Reset file pointer and get questions from first row
+    uploaded_file.seek(0)
+    questions_df = pd.read_csv(uploaded_file, nrows=1, encoding='cp1252')
     questions = questions_df.columns.tolist()
     
     # Rename columns to match questions
@@ -162,9 +183,10 @@ def main():
     
     # Load data
     try:
-        df = load_data()
-    except FileNotFoundError:
-        st.error("⚠️ Could not find 'Rocscience Core Values Survey 2.csv'. Please ensure the file is in the same directory as app.py")
+        df = load_data(uploaded_file)
+    except Exception as e:
+        st.error(f"⚠️ Error loading CSV file: {str(e)}")
+        st.info("Please make sure you've uploaded a valid Rocscience Core Values Survey CSV file.")
         return
     
     likert_cols = get_likert_columns(df)

@@ -122,6 +122,14 @@ Edit `.streamlit/secrets.toml` and change the password line.
 ### Need Help?
 Check the logs on Streamlit Cloud by clicking on "Manage app" → "Logs"
 
+### "Where's my data?"
+The CSV file is NOT in the repository for privacy. Users must:
+1. Log in with the password
+2. Upload the CSV file using the sidebar file uploader
+3. The dashboard will load once the file is uploaded
+
+This keeps your survey data completely private!
+
 ---
 
 ## Making It Private
