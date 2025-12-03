@@ -1,6 +1,3 @@
-# Streamlit secrets (contains passwords)
-.streamlit/secrets.toml
-
 # Survey data (uploaded by users)
 *.csv
 Rocscience Core Values Survey 2.csv

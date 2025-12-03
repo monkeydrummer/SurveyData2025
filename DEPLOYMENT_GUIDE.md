@@ -1,15 +1,5 @@
 # Quick Deployment Guide for Streamlit Cloud
 
-## Your Dashboard Password
-
-```
-RocSci2024!Survey#Dash$92
-```
-
-**Keep this password secure!**
-
----
-
 ## Deploy in 5 Minutes
 
 ### 1. Create GitHub Repository
@@ -55,14 +45,7 @@ git push -u origin main
    - Branch: `main`
    - Main file path: `app.py`
 
-5. **Click** "Advanced settings"
-
-6. **In the Secrets section**, paste:
-   ```toml
-   password = "RocSci2024!Survey#Dash$92"
-   ```
-
-7. **Click** "Deploy"
+5. **Click** "Deploy"
 
 ### 4. Wait 2-3 Minutes
 
@@ -73,9 +56,10 @@ https://your-app-name.streamlit.app
 
 ### 5. Share the Link
 
-Send the URL and password to your team:
+Send the URL to your team:
 - **URL:** `https://your-app-name.streamlit.app`
-- **Password:** `RocSci2024!Survey#Dash$92`
+
+Users will need to upload their own CSV file when accessing the dashboard.
 
 ---
 
@@ -93,31 +77,11 @@ Streamlit Cloud will automatically redeploy!
 
 ---
 
-## Changing the Password
-
-### On Streamlit Cloud:
-1. Go to your app at [share.streamlit.io](https://share.streamlit.io)
-2. Click on your app
-3. Click ⚙️ Settings
-4. Go to "Secrets"
-5. Update the password line
-6. Click "Save"
-7. App will restart with new password
-
-### Locally:
-Edit `.streamlit/secrets.toml` and change the password line.
-
----
-
 ## Troubleshooting
 
-### "Password incorrect" on Streamlit Cloud
-- Make sure you added the password in the Secrets section (step 3.6 above)
-- Check for extra spaces or quotes in the password
-
 ### App won't start
-- Check that `Rocscience Core Values Survey 2.csv` is in your repository
 - Verify all files from `requirements.txt` are included
+- Check the logs for specific error messages
 
 ### Need Help?
 Check the logs on Streamlit Cloud by clicking on "Manage app" → "Logs"
@@ -132,16 +96,20 @@ This keeps your survey data completely private!
 
 ---
 
-## Making It Private
+## Privacy & Security
 
-Your Streamlit Cloud app is public by default (anyone with the link can access it).
-The password provides access control.
+Your Streamlit Cloud app is public (anyone with the link can access it).
+
+Security features:
+- ✅ No sensitive data in the repository
+- ✅ Users must upload their own CSV files
+- ✅ Data is only stored in the user's session
+- ✅ Data is never saved to the server
 
 For additional security:
-1. Keep your GitHub repo private
-2. Don't share the app URL publicly
-3. Change the password periodically
-4. Use Streamlit Cloud's built-in authentication (paid feature) for enterprise use
+1. Don't share the app URL publicly if you want to restrict access
+2. Consider using Streamlit Cloud's built-in authentication (paid feature) for enterprise use
+3. Educate users to only upload the CSV when needed
 
 ---
 
