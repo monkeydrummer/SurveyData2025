@@ -315,7 +315,7 @@ def main():
         dept_data = []
         for dept in selected_departments:
             dept_df = filtered_df[filtered_df['Department'] == dept]
-            dist = calculate_response_distribution(dept_df, selected_questions, group_responses_mode)
+            dist = calculate_response_distribution(dept_df, selected_questions, group_responses_mode, exclude_dont_know)
             
             if not dist.empty:
                 total = dist.sum()
@@ -366,7 +366,7 @@ def main():
         tenure_data = []
         for tenure in selected_tenure:
             tenure_df = filtered_df[filtered_df['Tenure'] == tenure]
-            dist = calculate_response_distribution(tenure_df, selected_questions, group_responses_mode)
+            dist = calculate_response_distribution(tenure_df, selected_questions, group_responses_mode, exclude_dont_know)
             
             if not dist.empty:
                 total = dist.sum()
@@ -524,7 +524,7 @@ def main():
             for cat in selected_categories:
                 cat_questions = question_categories.get(cat, [])
                 if cat_questions:
-                    dist = calculate_response_distribution(filtered_df, cat_questions, group_responses_mode)
+                    dist = calculate_response_distribution(filtered_df, cat_questions, group_responses_mode, exclude_dont_know)
                     
                     if not dist.empty:
                         total = dist.sum()
